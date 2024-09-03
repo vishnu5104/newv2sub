@@ -20,7 +20,7 @@ export const users = pgTable("users", {
   // if you are using Github OAuth, you can get rid of the username attribute (that is for Twitter OAuth)
   username: text("username"),
   gh_username: text("gh_username"),
-  email: text("email"),
+  email: text("email").notNull().unique(),
   emailVerified: timestamp("emailVerified", { mode: "date" }),
   image: text("image"),
   createdAt: timestamp("createdAt", { mode: "date" }).defaultNow().notNull(),
